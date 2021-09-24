@@ -4,7 +4,8 @@ namespace App\Domain;
 
 class Product
 {
-	public function __construct(public $name, public $unitPrice) {
+
+	public function __construct(public $name, public $unitPrice, public $isFeatured = true) {
 	}
 
 	public function applyDiscountFor(IUserContext $user): DiscountedProduct
