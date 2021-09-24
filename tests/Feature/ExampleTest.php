@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Domain\DiscountedPrice;
 use App\Domain\IProductService;
-use App\Http\ViewModels\ProductViewModel;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
 
@@ -20,8 +20,8 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200)
-            ->assertSee('Chocolate ($20.00)')
-            ->assertSee('Aqua ($4.99)');
+            ->assertSeeText('Chocolate ($20.00)')
+            ->assertSeeText('Aqua ($4.99)');
     }
 }
 class StubService implements IProductService
@@ -29,8 +29,8 @@ class StubService implements IProductService
     public function getFeaturedProducts(): Collection
     {
         return collect([
-            new ProductViewModel('Chocolate', 20),
-            new ProductViewModel('Aqua', 4.99),
+            new DiscountedPrice('Chocolate', 20),
+            new DiscountedPrice('Aqua', 4.99),
         ]);
     }
 }

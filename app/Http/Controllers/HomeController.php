@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function __invoke(IProductService $productService)
     {
         $model = $productService->getFeaturedProducts()
+            ->mapInto(ProductViewModel::class)
             ->pipeInto(FeaturedProductViewModel::class);
 
         return view('home', ['model' => $model]);
