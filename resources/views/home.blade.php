@@ -16,21 +16,11 @@
         <p>This is a demo app for showcasing the outside-in approach using DI concepts.</p>
 
         <ul>
+            @foreach ($products as $product)
             <li>
-                Criollo Chocolate ($39.45)
+                {{ sprintf("%s ($%0.2f)", $product['name'], $product['unit_price']) }}
             </li>
-            <li>
-                Gruyere ($48.50)
-            </li>
-            <li>
-                White Asparguras ($29.99)
-            </li>
-            <li>
-                Anchovoris ($19.99)
-            </li>
-            <li>
-                Arborio Rice ($22.75)
-            </li>
+            @endforeach
         </ul>
     </main>
 
