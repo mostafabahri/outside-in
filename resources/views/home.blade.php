@@ -16,7 +16,7 @@
         <p>This is a demo app for showcasing the outside-in approach using DI concepts.</p>
 
         <ul>
-            @foreach ($products as $product)
+            @foreach ($model->products() as $product)
             <li>
                 {{$product->summaryText()}}
             </li>
