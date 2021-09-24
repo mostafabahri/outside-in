@@ -11,12 +11,12 @@ class HomeController extends Controller
     {
         $model = $productService->getFeaturedProducts()
             ->mapInto(ProductViewModel::class)
-            ->pipeInto(FeaturedProductViewModel::class);
+            ->pipeInto(FeaturedProductsViewModel::class);
 
         return view('home', compact('model'));
     }
 }
-class FeaturedProductViewModel
+class FeaturedProductsViewModel
 {
     public function __construct(private $products)
     {

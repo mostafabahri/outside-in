@@ -2,11 +2,11 @@
 
 namespace App\Http\ViewModels;
 
-use App\Domain\DiscountedPrice;
+use App\Domain\DiscountedProduct;
 
 class ProductViewModel
 {
-    public function __construct(private DiscountedPrice $product)
+    public function __construct(private DiscountedProduct $product)
     {
     }
 

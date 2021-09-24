@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Domain\DiscountedPrice;
+use App\Domain\DiscountedProduct;
 use App\Domain\IProductService;
 use App\Http\ViewModels\ProductViewModel;
 use Illuminate\Support\Collection;
@@ -25,11 +25,11 @@ class AppServiceProvider extends ServiceProvider
                 public function getFeaturedProducts(): Collection
                 {
                     return collect([
-                        new DiscountedPrice('Criollo Chocolate', 39.45),
-                        new DiscountedPrice('Gruyere', 48.50),
-                        new DiscountedPrice('White Asparguras', 29.99),
-                        new DiscountedPrice('Anchovoris', 19.99),
-                        new DiscountedPrice('Arborio Rice', 22.75)
+                        new DiscountedProduct('Criollo Chocolate', 39.45),
+                        new DiscountedProduct('Gruyere', 48.50),
+                        new DiscountedProduct('White Asparguras', 29.99),
+                        new DiscountedProduct('Anchovoris', 19.99),
+                        new DiscountedProduct('Arborio Rice', 22.75)
                     ]);
                 }
             }

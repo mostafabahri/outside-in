@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 
 interface IProductService {
 
-    // @return array<DiscountedPrice>
+    /**
+     * @return Collection<DiscountedProduct>
+     **/
     public function getFeaturedProducts(): Collection;
 }

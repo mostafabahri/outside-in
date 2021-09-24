@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Domain\DiscountedPrice;
+use App\Domain\DiscountedProduct;
 use App\Domain\IProductService;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
@@ -29,8 +29,8 @@ class StubService implements IProductService
     public function getFeaturedProducts(): Collection
     {
         return collect([
-            new DiscountedPrice('Chocolate', 20),
-            new DiscountedPrice('Aqua', 4.99),
+            new DiscountedProduct('Chocolate', 20),
+            new DiscountedProduct('Aqua', 4.99),
         ]);
     }
 }
