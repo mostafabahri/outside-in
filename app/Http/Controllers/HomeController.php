@@ -10,22 +10,24 @@ class HomeController extends Controller
     {
         return view('home', [
             'products' => [
-                [
-                    'name' => 'Criollo Chocolate', 'unit_price' => '39.45'
-                ],
-                [
-                    'name' => 'Gruyere', 'unit_price' => '48.50'
-                ],
-                [
-                    'name' => 'White Asparguras', 'unit_price' => '29.99'
-                ],
-                [
-                    'name' => 'Anchovoris', 'unit_price' => '19.99'
-                ],
-                [
-                    'name' => 'Arborio Rice', 'unit_price' => '22.75'
-                ],
+                new ProductViewModel('Criollo Chocolate', 39.45),
+                new ProductViewModel('Gruyere', 48.50),
+                new ProductViewModel('White Asparguras', 29.99),
+                new ProductViewModel('Anchovoris', 19.99),
+                new ProductViewModel('Arborio Rice', 22.75)
             ]
         ]);
+    }
+}
+
+class ProductViewModel
+{
+    public function __construct(private $name, private $unitPrice)
+    {
+    }
+
+    public function summaryText()
+    {
+        return sprintf("%s ($%0.2f)", $this->name, $this->unitPrice);
     }
 }

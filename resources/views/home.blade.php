@@ -18,7 +18,7 @@
         <ul>
             @foreach ($products as $product)
             <li>
-                {{ sprintf("%s ($%0.2f)", $product['name'], $product['unit_price']) }}
+                {{$product->summaryText()}}
             </li>
             @endforeach
         </ul>
