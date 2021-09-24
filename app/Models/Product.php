@@ -16,10 +16,17 @@ class Product extends Model
         return $query->whereIsFeatured(true);
     }
 
+    public static function new($name, $unitPrice, $isFeatured)
+    {
+        return new self([
+            'name' => $name,
+            'unit_price' => $unitPrice,
+            'is_featured' => $isFeatured,
+        ]);
+    }
+
     public function toDomain()
     {
         return new DomainProduct($this->name, $this->unitPrice, $this->isFeatured);
     }
-
 }
-
