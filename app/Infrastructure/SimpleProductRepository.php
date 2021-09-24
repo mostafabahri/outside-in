@@ -21,6 +21,7 @@ class SimpleProductRepository implements IProductRepository
 			new Product('White Asparguras', 29.99),
 			new Product('Anchovoris', 19.99),
 			new Product('Arborio Rice', 22.75),
+			new Product('Vanila', 10),
 		]);
 	}
 }

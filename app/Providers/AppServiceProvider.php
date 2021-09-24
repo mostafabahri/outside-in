@@ -2,13 +2,12 @@
 
 namespace App\Providers;
 
-use App\Domain\DiscountedProduct;
 use App\Domain\IProductRepository;
 use App\Domain\IProductService;
+use App\Domain\IUserContext;
 use App\Domain\ProductService;
-use App\Http\ViewModels\ProductViewModel;
+use App\Http\HttpUserContextAdapter;
 use App\Infrastructure\SimpleProductRepository;
-use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             IProductRepository::class,
             SimpleProductRepository::class
+        );
+
+        $this->app->bind(
+            IUserContext::class,
+            HttpUserContextAdapter::class
         );
     }
 
