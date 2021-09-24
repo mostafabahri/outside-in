@@ -10,8 +10,7 @@ use Tests\TestCase as AppTestCase;
 
 class SqlRepositoryTest extends AppTestCase
 {
-	use RefreshDatabase;
-
+	// use RefreshDatabase;
 	/** @test */
 
 	public function test_it_filters_featured_items()
@@ -25,9 +24,14 @@ class SqlRepositoryTest extends AppTestCase
 		$results = $repo->getFeaturedProducts();
 		$this->assertCount(2, $results);
 
-		$this->assertInstanceOf(Product::class, $results->firstOrFail('name', 'bar'));
+		$this->assertInstanceOf(Product::class, $bar = $results->firstOrFail('name', 'bar'));
 
-		$this->assertInstanceOf(Product::class, $results->firstOrFail('name', 'baz'));
+		$this->assertEquals(25, $bar->unitPrice);
+		$this->assertEquals(true, $bar->isFeatured);
+
+		$this->assertInstanceOf(Product::class, $baz = $results->firstOrFail('name', 'baz'));
+		$this->assertEquals(30, $baz->unitPrice);
+		$this->assertEquals(true, $baz->isFeatured);
 	}
 
 	/** @test */

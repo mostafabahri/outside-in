@@ -27,6 +27,6 @@ class Product extends Model
 
     public function toDomain()
     {
-        return new DomainProduct($this->name, $this->unitPrice, $this->isFeatured);
+        return new DomainProduct($this->name, $this->unit_price, $this->is_featured);
     }
 }

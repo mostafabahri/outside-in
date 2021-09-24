@@ -8,6 +8,7 @@ use App\Domain\IUserContext;
 use App\Domain\ProductService;
 use App\Http\HttpUserContextAdapter;
 use App\Infrastructure\SimpleProductRepository;
+use App\Infrastructure\SqlProductRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             IProductRepository::class,
-            SimpleProductRepository::class
+            SqlProductRepository::class
         );
 
         $this->app->bind(
