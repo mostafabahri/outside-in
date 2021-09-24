@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 class ProductService implements IProductService
 {
 
-    public function __construct(private IProductRepository $repository)
+    public function __construct(private IProductRepository $repository, private IUserContext $userContext)
     {
     }
     /**
@@ -17,7 +17,8 @@ class ProductService implements IProductService
      **/
     public function getFeaturedProducts(): Collection
     {
-        return $this->repository->getFeaturedProducts()
-            ->map->applyDiscountFor();
+        return $this->repository
+            ->getFeaturedProducts()
+            ->map->applyDiscountFor($this->userContext);
     }
 }
