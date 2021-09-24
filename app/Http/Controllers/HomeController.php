@@ -13,7 +13,7 @@ class HomeController extends Controller
             ->mapInto(ProductViewModel::class)
             ->pipeInto(FeaturedProductViewModel::class);
 
-        return view('home', ['model' => $model]);
+        return view('home', compact('model'));
     }
 }
 class FeaturedProductViewModel
