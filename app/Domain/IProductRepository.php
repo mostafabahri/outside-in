@@ -4,12 +4,12 @@ namespace App\Domain;
 
 use Illuminate\Support\Collection;
 
-interface IProductService {
+interface IProductRepository {
 
     /**
-     * Get featured products.
-     * 
-     * @return Collection<DiscountedProduct>
+     * The interface for data access.
+     *
+     * @return Collection<Product>
      **/
     public function getFeaturedProducts(): Collection;
 }
